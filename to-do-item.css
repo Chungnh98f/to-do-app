@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  text-align: center;
+  font-family: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  color: #0073c3;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* li {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-grow: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 22px;
+} */
+li {
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+label {
+  font-size: 22px;
+  font-family: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+    
