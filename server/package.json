@@ -1,0 +1,49 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "watch": "tsc -w",
+        "dev": "nodemon dist/index.js",
+        "start": "node dist/index.js",
+        "start-dev": "ts-node src/index.ts",
+        "dev-ts": "nodemon --exec ts-node src/index.ts"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@types/body-parser": "^1.19.1",
+        "@types/connect-redis": "^0.0.16",
+        "@types/cors": "^2.8.10",
+        "@types/express": "^4.17.12",
+        "@types/express-session": "^1.17.3",
+        "@types/ioredis": "^4.26.4",
+        "@types/node": "^15.6.1",
+        "@types/nodemailer": "^6.4.2",
+        "@types/redis": "^2.8.29",
+        "@types/type-is": "^1.6.3",
+        "@types/uuid": "^8.3.0",
+        "nodemon": "^2.0.7",
+        "ts-node": "^10.0.0",
+        "typescript": "^4.3.2"
+    },
+    "dependencies": {
+        "@types/bcryptjs": "^2.4.2",
+        "@types/helmet": "^4.0.0",
+        "@types/jsonwebtoken": "^8.5.4",
+        "argon2": "^0.28.1",
+        "class-validator": "^0.13.1",
+        "connect-redis": "^6.0.0",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.2",
+        "ioredis": "^4.27.5",
+        "jsonwebtoken": "^8.5.1",
+        "nodemailer": "^6.6.1",
+        "pg": "^8.6.0",
+        "reflect-metadata": "^0.1.13",
+        "type-graphql": "^1.1.1",
+        "typeorm": "^0.2.34",
+        "uuid": "^8.3.2"
+    }
+}
