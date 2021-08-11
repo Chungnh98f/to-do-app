@@ -4,10 +4,6 @@ import todoRouter from "./todo";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.json("Hello there");
-});
-
 router.use("/api/auth", authRouter);
 router.use("/api/todo", todoRouter);
 

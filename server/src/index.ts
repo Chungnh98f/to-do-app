@@ -1,42 +1,44 @@
+import bodyParser from "body-parser";
+import cors from "cors";
+import dotenv from "dotenv";
+import express from "express";
+import helmet from "helmet";
+import path from "path";
+import "reflect-metadata";
+import { createConnection } from "typeorm";
 import { Todo } from "./entities/Todo";
 import { User } from "./entities/User";
-import cors from "cors";
-import express from "express";
-import { createConnection } from "typeorm";
-import path from "path";
-import { router } from "./api";
-import dotenv from "dotenv";
-import bodyParser from "body-parser";
+import { router } from "./routes";
 
 dotenv.config();
 
 const main = async () => {
     const conn = await createConnection({
         type: "postgres",
-        database: "todos",
-        username: "postgres",
-        password: "postgres",
+        database: process.env.POSTGRES_DATABASE || "todos",
+        host: process.env.POSTGRES_HOST || "localhost",
+        port: Number(process.env.POSTGRES_PORT) || 5432,
+        username: process.env.POSTGRES_USER || "postgres",
+        password: process.env.POSTGRES_PASSWORD || "postgres",
         logging: true,
         synchronize: false,
         migrations: [path.join(__dirname, "./migrations/*")],
         entities: [User, Todo],
     });
 
-    // await conn.runMigrations();
+    try {
+        await conn.runMigrations();
+    } catch (err) {
+        console.log(err);
+    }
 
     const app = express();
+    app.use(cors());
+    app.use(helmet());
 
     app.use(bodyParser.urlencoded({ extended: false }));
 
-    // parse application/json
     app.use(bodyParser.json());
-
-    app.use(
-        cors({
-            origin: "http://localhost:4200",
-            credentials: true,
-        })
-    );
 
     app.use(router);
 
@@ -47,3 +49,5 @@ const main = async () => {
 };
 
 main().catch((err) => console.log(err));
+
+process.on("SIGINT", () => process.exit());

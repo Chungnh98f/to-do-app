@@ -1,7 +1,7 @@
-import { IValidationResponse } from "../models/ValidationResponse";
+import { IResponse } from "../models/Response";
 import { ILoginInput } from "../models/LoginInput";
 
-export const validateLogin = (input: ILoginInput): IValidationResponse => {
+export const validateLogin = (input: ILoginInput): IResponse => {
     const { username, password } = input;
     if (!username || username.length < 5) {
         return {

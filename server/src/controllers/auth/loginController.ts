@@ -1,11 +1,8 @@
+import { Request, Response } from "express";
 import { loginService } from "./../../services/auth/login";
 import { validateLogin } from "./../../utils/validateLogin";
-import express from "express";
 
-const router = express.Router();
-
-// Login || Public
-router.post("/login", (req, res) => {
+export const loginController = async (req: Request, res: Response) => {
     // Get data from request body
     const { username, password } = req.body;
 
@@ -18,26 +15,15 @@ router.post("/login", (req, res) => {
     }
 
     // Query user and generate token
-    const login = loginService({ username, password });
-    if (!login.result) {
+    const response = await loginService({ username, password });
+    if (!response.result) {
         return res.status(401).send({
-            message: login.errorMessage,
+            message: response.errorMessage,
         });
     }
 
     return res.json({
-        accessToken: login.accessToken,
-        refreshToken: login.refreshToken,
+        accessToken: response.accessToken,
+        refreshToken: response.refreshToken,
     });
-});
-
-// Register
-router.post("/register", (req, res) => {});
-
-// Logout
-router.get("/logout", (req, res) => {});
-
-// Refresher token
-router.post("/refresh-token", (req, res) => {});
-
-export default router;
+};

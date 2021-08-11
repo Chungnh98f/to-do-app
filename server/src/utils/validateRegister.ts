@@ -1,27 +1,24 @@
 import { IRegisterInput } from "../models/RegisterInput";
-import { IValidationResponse } from "../models/ValidationResponse";
-import { validateEmail } from "./validateEmail";
+import { IResponse } from "../models/Response";
 
-export const validateRegister = (
-    input: IRegisterInput
-): IValidationResponse => {
-    const { username, password, email } = input;
+export const validateRegister = (input: IRegisterInput): IResponse => {
+    const { username, password, name } = input;
 
-    if (!validateEmail(email)) {
+    if (!name || name.length < 2) {
         return {
             result: false,
-            errorMessage: "Invalid email",
+            errorMessage: "Invalid name",
         };
     }
 
-    if (!username || username.length < 6) {
+    if (!username || username.length < 5) {
         return {
             result: false,
             errorMessage: "Invalid username",
         };
     }
 
-    if (!password || password.length < 6) {
+    if (!password || password.length < 5) {
         return {
             result: false,
             errorMessage: "Invalid password",

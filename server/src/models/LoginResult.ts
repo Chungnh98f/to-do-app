@@ -1,6 +1,6 @@
-import { IValidationResponse } from "./ValidationResponse";
+import { IResponse } from "./Response";
 
-export interface ILoginResult extends IValidationResponse {
+export interface ILoginResult extends IResponse {
     accessToken?: string;
     refreshToken?: string;
 }

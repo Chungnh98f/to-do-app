@@ -1,0 +1,51 @@
+GET http://localhost:5050
+
+###
+
+POST http://localhost:5050/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+###
+
+POST http://localhost:5050/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "longkt",
+  "password": "longkt"
+}
+
+###
+
+POST http://localhost:5050/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "longkt",
+  "password": "longkt",
+  "name": "longkt"
+}
+
+###
+
+DELETE  http://localhost:5050/api/auth/logout
+Authorization: Bearer 
+
+###
+
+POST  http://localhost:5050/api/auth/refresh-token
+Content-Type: application/json
+
+{
+  "refresherToken": ""
+}
+
+###
+
+GET http://localhost:5050/api/todo/all
+Authorization: Bearer 

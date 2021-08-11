@@ -1,4 +1,4 @@
-export interface IValidationResponse {
+export interface IResponse {
     errorMessage?: string;
     result: boolean;
 }
