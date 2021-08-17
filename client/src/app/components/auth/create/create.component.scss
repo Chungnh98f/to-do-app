@@ -1,0 +1,12 @@
+.container {
+  background-color: #fff;
+  padding: 0 0.25rem;
+  text-align: center;
+  .wrapper {
+    display: inline-flex;
+    align-items: center;
+    .mat-form-field {
+      margin: 0 0.25rem;
+    }
+  }
+}

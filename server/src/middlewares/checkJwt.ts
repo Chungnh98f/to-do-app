@@ -4,7 +4,11 @@ import * as jwt from "jsonwebtoken";
 import { redis } from "../utils/initRedis";
 
 export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
-    const authHeader = <string>req.headers["authorization"];
+    const authHeader = <string>req.headers["authorization"] || "";
+    if (!authHeader) {
+        res.status(401).send({ message: "Token required" });
+        return;
+    }
     const token = authHeader.split(" ")[1];
     let jwtPayload;
 
@@ -17,10 +21,11 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     }
 
     redis.get(jwtPayload.username + accessTokenLabel, (err, data) => {
-        if (data) {
-            next();
-            return;
+        if (!data || data !== token) {
+            return res.status(401).send({ message: err });
         }
-        return res.status(401).send({ message: err });
+
+        next();
+        return;
     });
 };

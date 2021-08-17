@@ -13,5 +13,8 @@ export const createTodoController = async (req: Request, res: Response) => {
         return res.status(400).send({ message: response.errorMessage });
     }
 
-    return res.json("Created todo successfully");
+    return res.json({
+        message: "Created todo successfully",
+        data: response.data,
+    });
 };

@@ -24,17 +24,19 @@ Content-Type: application/json
 
 POST http://localhost:5050/api/auth/register
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjU4LCJpYXQiOjE2Mjg4NDE3MDUsImV4cCI6MTYyODg0MzUwNX0.GRh6o0fv2Uqea5xFNulLJRlt-qwEOQr3iqAnSBpMW2I
 
 {
-  "username": "longkt",
-  "password": "longkt",
-  "name": "longkt"
+  "username": "longkt2",
+  "name": "longkt2",
+  "password": "admin",
+  "is_admin": false
 }
 
 ###
 
 DELETE  http://localhost:5050/api/auth/logout
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjU4LCJpYXQiOjE2Mjg4MzEyOTcsImV4cCI6MTYyODgzMzA5N30.BeFEfATwGzDr9hCbBlnEwhyqIje3s9LroxbqPpDhgiM
 
 ###
 
@@ -42,10 +44,10 @@ POST  http://localhost:5050/api/auth/refresh-token
 Content-Type: application/json
 
 {
-  "refresherToken": ""
+  "refresherToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjU4LCJpYXQiOjE2Mjg4MzEzMTIsImV4cCI6MTYyODkxNzcxMn0.zUEnAxSs1Kz10Q17g21oGhYAWn-kKw_eDsM8KsADbB8"
 }
 
 ###
 
-GET http://localhost:5050/api/todo/all
-Authorization: Bearer 
+GET http://localhost:5050/api/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvbmdrdCIsImlkIjo2MCwiaWF0IjoxNjI5MTMxNjU4LCJleHAiOjE2MjkxMzM0NTh9.uLkt-1RdHw25v0sZ97je31-oSPTsMFCOdhvAx2tcc5I

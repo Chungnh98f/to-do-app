@@ -1,0 +1,11 @@
+.container {
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+span {
+  margin-left: 1rem;
+  &.done {
+    text-decoration: line-through;
+  }
+}

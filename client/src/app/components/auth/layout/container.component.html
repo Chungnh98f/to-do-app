@@ -1,0 +1,15 @@
+<app-container>
+  <div class="container">
+    <nav>
+      <div class="link__wrapper">
+        <a mat-button routerLink="/dashboard">Dashboard</a>
+        <ng-template [ngIf]="isAdmin$ | async">
+          <a mat-button routerLink="/admin/report">Report</a>
+          <a mat-button routerLink="/admin/create-user">New User</a>
+        </ng-template>
+      </div>
+      <button mat-button (click)="logout()">Logout</button>
+    </nav>
+    <ng-content></ng-content>
+  </div>
+</app-container>

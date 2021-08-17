@@ -4,7 +4,7 @@ import { getRepository } from "typeorm";
 import { User } from "../../entities/User";
 
 export const createUser = async (input: IRegisterInput): Promise<IResponse> => {
-    const { username, password, name } = input;
+    const { username, password, name, is_admin } = input;
     const userRepository = getRepository(User);
     let user = await userRepository.findOne({
         where: { username },
@@ -21,7 +21,7 @@ export const createUser = async (input: IRegisterInput): Promise<IResponse> => {
     user.username = username;
     user.password = password;
     user.name = name;
-    user.is_admin = false;
+    user.is_admin = is_admin;
     user.hashPassword();
 
     try {

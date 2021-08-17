@@ -1,12 +1,12 @@
+import { ILoginResult } from "../../models/LoginResult";
+import { validateUser } from "../../repositories/user/validateUser";
+import { redis } from "../../utils/initRedis";
 import {
     accessTokenLabel,
     redisLoginDurationTime,
     redisRefresherTokenDurationTime,
-    refreshTokenLabel,
+    refreshTokenLabel
 } from "./../../constants";
-import { redis } from "../../utils/initRedis";
-import { ILoginResult } from "../../models/LoginResult";
-import { validateUser } from "../../repositories/user/validateUser";
 import { ILoginInput } from "./../../models/LoginInput";
 import { generateAccessToken } from "./../../utils/generateAccessToken";
 import { generateRefreshToken } from "./../../utils/generateRefreshToken";
@@ -23,6 +23,7 @@ export const loginService = async (
             errorMessage: userResponse.errorMessage,
         };
     }
+
 
     const accessToken = generateAccessToken({
         username,

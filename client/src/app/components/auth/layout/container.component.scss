@@ -1,0 +1,9 @@
+.container {
+  min-height: 100vh;
+  background-color: #fff;
+  nav {
+    padding: 0.5rem 0.25rem 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}

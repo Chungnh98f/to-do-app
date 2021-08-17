@@ -20,7 +20,7 @@ const main = async () => {
         port: Number(process.env.POSTGRES_PORT) || 5432,
         username: process.env.POSTGRES_USER || "postgres",
         password: process.env.POSTGRES_PASSWORD || "postgres",
-        logging: true,
+        logging: false,
         synchronize: false,
         migrations: [path.join(__dirname, "./migrations/*")],
         entities: [User, Todo],

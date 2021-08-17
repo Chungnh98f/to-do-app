@@ -1,23 +1,22 @@
-import * as jwt from "jsonwebtoken";
+import { generateRefreshToken } from "./../../utils/generateRefreshToken";
 import { User } from "../../entities/User";
 import { ILoginResult } from "../../models/LoginResult";
 import { redis } from "../../utils/initRedis";
 import {
     accessTokenLabel,
-    redisLoginDurationTime
+    redisLoginDurationTime,
+    redisRefresherTokenDurationTime,
+    refreshTokenLabel,
 } from "./../../constants";
 import { generateAccessToken } from "./../../utils/generateAccessToken";
 
-export const refreshTokenService = (token: string): ILoginResult => {
-    let user: User;
-
-    try {
-        user = <any>jwt.verify(token, process.env.REFRESH_TOKEN_SECRET!);
-    } catch (err) {
-        return { result: false, errorMessage: err };
-    }
-
+export const refreshTokenService = (user: User): ILoginResult => {
     const accessToken = generateAccessToken({
+        username: user.username,
+        id: user.id,
+    });
+
+    const refreshToken = generateRefreshToken({
         username: user.username,
         id: user.id,
     });
@@ -35,8 +34,22 @@ export const refreshTokenService = (token: string): ILoginResult => {
         }
     );
 
+    redis.set(
+        user.username + refreshTokenLabel,
+        refreshToken,
+        "EX",
+        redisRefresherTokenDurationTime,
+        (err, _) => {
+            return {
+                result: false,
+                errorMessage: err,
+            };
+        }
+    );
+
     return {
         result: true,
         accessToken,
+        refreshToken,
     };
 };

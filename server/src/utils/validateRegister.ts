@@ -2,7 +2,7 @@ import { IRegisterInput } from "../models/RegisterInput";
 import { IResponse } from "../models/Response";
 
 export const validateRegister = (input: IRegisterInput): IResponse => {
-    const { username, password, name } = input;
+    const { username, password, name, is_admin } = input;
 
     if (!name || name.length < 2) {
         return {
@@ -22,6 +22,13 @@ export const validateRegister = (input: IRegisterInput): IResponse => {
         return {
             result: false,
             errorMessage: "Invalid password",
+        };
+    }
+
+    if (typeof is_admin !== "boolean") {
+        return {
+            result: false,
+            errorMessage: "Invalid role",
         };
     }
 
