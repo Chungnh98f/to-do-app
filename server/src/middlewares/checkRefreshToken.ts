@@ -3,11 +3,16 @@ import * as jwt from "jsonwebtoken";
 import { redis } from "../utils/initRedis";
 import { refreshTokenLabel } from "./../constants";
 
-export const checkRefreshToken = (req: Request, res: Response, next: NextFunction) => {
+export const checkRefreshToken = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     const { refreshToken } = req.body;
     let jwtPayload;
 
     try {
+        console.log(process.env.REFRESH_TOKEN_SECRET);
         jwtPayload = <any>(
             jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET!)
         );
@@ -17,7 +22,7 @@ export const checkRefreshToken = (req: Request, res: Response, next: NextFunctio
         return;
     }
 
-    redis.get(jwtPayload.username + refreshTokenLabel, (err, data) => {
+    redis.get(jwtPayload.email + refreshTokenLabel, (err, data) => {
         if (!data || data !== refreshToken) {
             return res.status(401).send({ message: err });
         }

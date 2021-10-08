@@ -5,9 +5,9 @@ import { ITodoResponse } from "./../../models/TodoResponse";
 export const createTodoService = async (
     input: ITodoInput
 ): Promise<ITodoResponse> => {
-    const { userId, name } = input;
+    const { userId, name, content, type } = input;
 
-    const response = await createTodo({ userId, name });
+    const response = await createTodo({ userId, name, content, type });
     if (!response.result) {
         return {
             result: response.result,

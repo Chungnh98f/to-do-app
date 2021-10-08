@@ -14,9 +14,9 @@ import { generateRefreshToken } from "./../../utils/generateRefreshToken";
 export const loginService = async (
     input: ILoginInput
 ): Promise<ILoginResult> => {
-    const { username, password } = input;
+    const { email, password } = input;
 
-    let userResponse = await validateUser({ username, password });
+    let userResponse = await validateUser({ email, password });
     if (!userResponse.result) {
         return {
             result: false,
@@ -26,17 +26,17 @@ export const loginService = async (
 
 
     const accessToken = generateAccessToken({
-        username,
+        email,
         id: userResponse.user!.id,
     });
 
     const refreshToken = generateRefreshToken({
-        username,
+        email,
         id: userResponse.user!.id,
     });
 
     redis.set(
-        username + accessTokenLabel,
+        email + accessTokenLabel,
         accessToken,
         "EX",
         redisLoginDurationTime,
@@ -49,7 +49,7 @@ export const loginService = async (
     );
 
     redis.set(
-        username + refreshTokenLabel,
+        email + refreshTokenLabel,
         refreshToken,
         "EX",
         redisRefresherTokenDurationTime,

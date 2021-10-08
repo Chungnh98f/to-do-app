@@ -15,13 +15,10 @@ export class User extends BaseEntity {
     id!: Number;
 
     @Column({ unique: true })
-    @MinLength(5, {
-        message: "username is too short",
-    })
-    username!: string;
+    email!: string;
 
     @Column({ unique: false })
-    name!: string;
+    username!: string;
 
     @Column({ select: false })
     @MinLength(5, {

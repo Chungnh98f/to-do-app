@@ -1,45 +1,50 @@
 
-GET  http://localhost:5050/api/todo/detail/2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjksImlhdCI6MTYyODY3OTY3OCwiZXhwIjoxNjI4NjgxNDc4fQ.b22MpTE29_MR1ksThZ4mUXwxE2ZFI1_fIfynwkF85O4
+GET  http://localhost:5050/api/todo/detail/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvbmdrdDFAZ21haWwuY29tIiwiaWQiOjQsImlhdCI6MTYzMzQyNDA0NCwiZXhwIjoxNjMzNDI1ODQ0fQ.PdlhJisMOn041BPVQFPBulnN25Fnh7HygtdlJvN5xTM
 
 ###
 
 GET http://localhost:5050/api/todo/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvbmdrdCIsImlkIjoxMCwiaWF0IjoxNjI4NjkyNDk5LCJleHAiOjE2Mjg2OTQyOTl9.cLL2cd2t1w7rOTgMrk7stfkBq9NaZ2lq8PlXp3wPcpw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvbmdrdDFAZ21haWwuY29tIiwiaWQiOjQsImlhdCI6MTYzMzQyNDA0NCwiZXhwIjoxNjMzNDI1ODQ0fQ.PdlhJisMOn041BPVQFPBulnN25Fnh7HygtdlJvN5xTM
 
 ###
 
 POST  http://localhost:5050/api/todo
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvbmdrdCIsImlkIjoxMCwiaWF0IjoxNjI4NjkyNDk5LCJleHAiOjE2Mjg2OTQyOTl9.cLL2cd2t1w7rOTgMrk7stfkBq9NaZ2lq8PlXp3wPcpw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvbmdrdDFAZ21haWwuY29tIiwiaWQiOjQsImlhdCI6MTYzMzQyNDA0NCwiZXhwIjoxNjMzNDI1ODQ0fQ.PdlhJisMOn041BPVQFPBulnN25Fnh7HygtdlJvN5xTM
 Content-Type: application/json
 
 {
-  "name": "Coding Unilever"
+  "name": "Coding Unilever",
+  "content": "Finish before deadline of this midnight",
+  "type": 1
+
 }
 
 ###
 
 
-PUT   http://localhost:5050/api/todo/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjksImlhdCI6MTYyODY5MTY2NiwiZXhwIjoxNjI4NjkzNDY2fQ.jWFzvy4h6eLog1N1Mr36IKXTlGfnwt3DY985sYKZ5Ic
+PUT   http://localhost:5050/api/todo/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvbmdrdDFAZ21haWwuY29tIiwiaWQiOjQsImlhdCI6MTYzMzQyNDA0NCwiZXhwIjoxNjMzNDI1ODQ0fQ.PdlhJisMOn041BPVQFPBulnN25Fnh7HygtdlJvN5xTM
 Content-Type: application/json
 
 {
-  "name": "Coding",
-  "is_completed": false
+  "name": "Coding Unilever",
+  "content": "Finish and meet deadline",
+  "is_completed": true,
+  "type": 1
 }
 
 ###
 
-DELETE   http://localhost:5050/api/todo/4
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvbmdrdCIsImlkIjoxMCwiaWF0IjoxNjI4NjkyNDk5LCJleHAiOjE2Mjg2OTQyOTl9.cLL2cd2t1w7rOTgMrk7stfkBq9NaZ2lq8PlXp3wPcpw
+DELETE   http://localhost:5050/api/todo/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvbmdrdDFAZ21haWwuY29tIiwiaWQiOjQsImlhdCI6MTYzMzQyNDA0NCwiZXhwIjoxNjMzNDI1ODQ0fQ.PdlhJisMOn041BPVQFPBulnN25Fnh7HygtdlJvN5xTM
 
 ###
 
-GET  http://localhost:5050/api/todo/admin/detail/2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjksImlhdCI6MTYyODY5MTY2NiwiZXhwIjoxNjI4NjkzNDY2fQ.jWFzvy4h6eLog1N1Mr36IKXTlGfnwt3DY985sYKZ5Ic
+GET  http://localhost:5050/api/todo/admin/detail/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2MzM0MjQ1MTYsImV4cCI6MTYzMzQyNjMxNn0.OZssiAGdy4L4ey4jcmlRlrTg3jNMiAcdOE13pcb_jvs
 
 ###
 
 GET  http://localhost:5050/api/todo/admin/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjksImlhdCI6MTYyODY5MTY2NiwiZXhwIjoxNjI4NjkzNDY2fQ.jWFzvy4h6eLog1N1Mr36IKXTlGfnwt3DY985sYKZ5Ic
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2MzM0MjQ1MTYsImV4cCI6MTYzMzQyNjMxNn0.OZssiAGdy4L4ey4jcmlRlrTg3jNMiAcdOE13pcb_jvs

@@ -1,0 +1,61 @@
+import styled from "styled-components";
+
+export interface IStyledProps {
+    color?: any;
+    height?: any;
+    width?: any;
+    padding?: any;
+    margin?: any;
+    float?: any;
+    textAlign?: any;
+    backgroundColor?: any;
+    borderRadius?: any;
+    minHeight?: any;
+    maxHeight?: any;
+    minWidth?: any;
+    maxWidth?: any;
+    display?: any;
+    justifyContent?: any;
+    alignItems?: any;
+    position?: any;
+    zIndex?: any;
+    fontSize?: string;
+    fontWeight?: string;
+    fontFamily?: string;
+    top?: string;
+    bottom?: string;
+    left?: string;
+    right?: string;
+    boxShadow?: string;
+    flexDefinition?: string;
+    border?: string;
+}
+
+export const WrapContent = styled.div<IStyledProps>`
+    height: ${(props) => props.height};
+    width: ${(props) => props.width};
+    padding: ${(props) => props.padding};
+    margin: ${(props) => props.margin};
+    float: ${(props) => props.float};
+    text-align: ${(props) => props.textAlign};
+    background-color: ${(props) => props.backgroundColor};
+    border-radius: ${(props) => props.borderRadius};
+    min-height: ${(props) => props.minHeight};
+    max-height: ${(props) => props.maxHeight};
+    min-width: ${(props) => props.minWidth};
+    max-width: ${(props) => props.maxWidth};
+    display: ${(props) => props.display};
+    justify-content: ${(props) => props.justifyContent};
+    align-items: ${(props) => props.alignItems};
+    position: ${(props) => props.position};
+    z-index: ${(props) => props.zIndex};
+    font-size: ${(props) => props.fontSize};
+    font-weight: ${(props) => props.fontWeight};
+    top: ${(props) => props.top};
+    right: ${(props) => props.right};
+    left: ${(props) => props.left};
+    bottom: ${(props) => props.bottom};
+    box-shadow: ${(props) => props.boxShadow};
+    flexdefinition: ${(props) => props.flexDefinition};
+    border: ${(props) => props.border};
+`;

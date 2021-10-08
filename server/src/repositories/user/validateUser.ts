@@ -6,15 +6,15 @@ import { IUserResponse } from "../../models/UserResponse";
 export const validateUser = async (
     input: ILoginInput
 ): Promise<IUserResponse> => {
-    const { username, password } = input;
+    const { email, password } = input;
 
     const userRepository = getRepository(User);
     let user: User;
 
     try {
         user = await userRepository.findOneOrFail({
-            where: { username },
-            select: ["username", "is_admin", "password", "id", "name"],
+            where: { email },
+            select: ["username", "is_admin", "password", "id", "email"],
         });
     } catch (err) {
         return {

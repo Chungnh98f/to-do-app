@@ -15,6 +15,7 @@ export const getTodoById = async (
                 .getRepository(Todo)
                 .createQueryBuilder("todo")
                 .leftJoinAndSelect("todo.user", "user")
+                .leftJoinAndSelect("todo.type", "type")
                 .where("user.id = :userId", { userId })
                 .andWhere("todo.id = :id", { id })
                 .getOne();
@@ -23,6 +24,7 @@ export const getTodoById = async (
                 .getRepository(Todo)
                 .createQueryBuilder("todo")
                 .leftJoinAndSelect("todo.user", "user")
+                .leftJoinAndSelect("todo.type", "type")
                 .where("todo.id = :id", { id })
                 .getOne();
         }

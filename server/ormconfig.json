@@ -10,6 +10,6 @@
     "migrations": ["src/migrations/**/*.ts"],
     "cli": {
         "entitiesDir": "src/entities",
-        "migrationsDir": "serc/migrations"
+        "migrationsDir": "src/migrations"
     }
 }

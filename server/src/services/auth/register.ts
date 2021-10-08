@@ -5,9 +5,14 @@ import { createUser } from "./../../repositories/user/createUser";
 export const registerService = async (
     input: IRegisterInput
 ): Promise<IResponse> => {
-    const { username, password, name,is_admin } = input;
+    const { username, password, email, is_admin } = input;
 
-    const userResponse = await createUser({ username, password, name,is_admin });
+    const userResponse = await createUser({
+        username,
+        password,
+        email,
+        is_admin,
+    });
 
     if (!userResponse.result) {
         return {

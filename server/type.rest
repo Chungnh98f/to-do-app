@@ -1,0 +1,32 @@
+###
+
+GET http://localhost:5050/api/type/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvbmdrdDFAZ21haWwuY29tIiwiaWQiOjQsImlhdCI6MTYzMzQyNDA0NCwiZXhwIjoxNjMzNDI1ODQ0fQ.PdlhJisMOn041BPVQFPBulnN25Fnh7HygtdlJvN5xTM
+
+###
+
+POST  http://localhost:5050/api/type
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2MzM0MjQ1MTYsImV4cCI6MTYzMzQyNjMxNn0.OZssiAGdy4L4ey4jcmlRlrTg3jNMiAcdOE13pcb_jvs
+Content-Type: application/json
+
+{
+  "name": "Normal"
+}
+
+###
+
+
+PUT   http://localhost:5050/api/type/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2MzM0MjQ1MTYsImV4cCI6MTYzMzQyNjMxNn0.OZssiAGdy4L4ey4jcmlRlrTg3jNMiAcdOE13pcb_jvs
+Content-Type: application/json
+
+{
+  "name": "Priority"
+}
+
+###
+
+DELETE   http://localhost:5050/api/type/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2MzM0MjQ1MTYsImV4cCI6MTYzMzQyNjMxNn0.OZssiAGdy4L4ey4jcmlRlrTg3jNMiAcdOE13pcb_jvs
+
+###

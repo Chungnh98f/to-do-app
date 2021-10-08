@@ -4,10 +4,16 @@ import { Request, Response } from "express";
 
 export const registerController = async (req: Request, res: Response) => {
     // Get data from request body
-    let { username, password, name, is_admin } = req.body;
+    let { username, password, email } = req.body;
+    const is_admin = false;
 
     // Validate data
-    const validation = validateRegister({ username, password, name, is_admin });
+    const validation = validateRegister({
+        username,
+        password,
+        email,
+        is_admin,
+    });
     if (!validation.result) {
         return res.status(400).send({ message: validation.errorMessage });
     }
@@ -15,7 +21,7 @@ export const registerController = async (req: Request, res: Response) => {
     const register = await registerService({
         username,
         password,
-        name,
+        email,
         is_admin,
     });
 

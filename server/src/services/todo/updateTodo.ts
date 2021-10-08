@@ -6,7 +6,7 @@ import { updateTodo } from "../../repositories/todo/updateTodo";
 export const updateTodoService = async (
     input: ITodoInput
 ): Promise<ITodoResponse> => {
-    const { id, userId, name, is_completed } = input;
+    const { id, userId, name, is_completed, content, type } = input;
 
     const todoMatch = await getTodoById({ userId, id });
     if (!todoMatch.result) {
@@ -16,7 +16,13 @@ export const updateTodoService = async (
         };
     }
 
-    const updateResponse = await updateTodo({ id, name, is_completed });
+    const updateResponse = await updateTodo({
+        id,
+        name,
+        is_completed,
+        content,
+        type,
+    });
     if (!updateResponse.result) {
         return {
             result: false,

@@ -9,7 +9,7 @@ export const getUserById = async (id: number): Promise<IUserResponse> => {
     try {
         user = await userRepository.findOneOrFail({
             where: { id },
-            select: ["username", "is_admin", "id", "name"],
+            select: ["username", "is_admin", "id", "email"],
         });
     } catch (err) {
         return {

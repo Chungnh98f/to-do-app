@@ -13,7 +13,7 @@ export const authMeController = async (_: Request, res: Response) => {
 
     return res.json({
         data: {
-            name: response.user?.name,
+            email: response.user?.email,
             username: response.user?.username,
             is_admin: response.user?.is_admin,
             id: response.user?.id,

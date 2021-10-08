@@ -13,13 +13,17 @@ export const getAllTodo = async (input: ITodoInput): Promise<ITodoResponse> => {
                 .getRepository(Todo)
                 .createQueryBuilder("todo")
                 .leftJoinAndSelect("todo.user", "user")
+                .leftJoinAndSelect("todo.type", "type")
                 .where("user.id = :id", { id: userId })
+                .orderBy("updated_at", "DESC")
                 .getMany();
         } else {
             todos = await getConnection()
                 .getRepository(Todo)
                 .createQueryBuilder("todo")
                 .leftJoinAndSelect("todo.user", "user")
+                .leftJoinAndSelect("todo.type", "type")
+                .orderBy("updated_at", "DESC")
                 .getMany();
         }
     } catch (err) {

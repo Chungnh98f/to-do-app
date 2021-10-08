@@ -1,4 +1,4 @@
-GET http://localhost:5050
+GET http://localhost:5050/api/auth/facebook
 
 ###
 
@@ -6,8 +6,18 @@ POST http://localhost:5050/api/auth/login
 Content-Type: application/json
 
 {
-  "username": "admin",
+  "email": "admin@gmail.com",
   "password": "admin"
+}
+
+###
+
+POST http://localhost:5050/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "chungnh@gmail.com",
+  "password": "chungnh"
 }
 
 ###
@@ -24,12 +34,23 @@ Content-Type: application/json
 
 POST http://localhost:5050/api/auth/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjU4LCJpYXQiOjE2Mjg4NDE3MDUsImV4cCI6MTYyODg0MzUwNX0.GRh6o0fv2Uqea5xFNulLJRlt-qwEOQr3iqAnSBpMW2I
 
 {
   "username": "longkt2",
-  "name": "longkt2",
-  "password": "admin",
+  "email": "longkt2@gmail.com",
+  "password": "longkt2"
+}
+
+###
+
+POST http://localhost:5050/api/auth/register-by-admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNodW5nbmhAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTYzMzYyMTQ0MiwiZXhwIjoxNjMzNjIzMjQyfQ.I26K5TRl1xGevMitWCFyAiDtF4So-3Lm_saCCL6GZVc
+Content-Type: application/json 
+
+{
+  "username": "longkt2",
+  "email": "longkt2@gmail.com",
+  "password": "longkt2",
   "is_admin": false
 }
 
@@ -44,10 +65,18 @@ POST  http://localhost:5050/api/auth/refresh-token
 Content-Type: application/json
 
 {
-  "refresherToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjU4LCJpYXQiOjE2Mjg4MzEzMTIsImV4cCI6MTYyODkxNzcxMn0.zUEnAxSs1Kz10Q17g21oGhYAWn-kKw_eDsM8KsADbB8"
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2MzI5MTMyNTAsImV4cCI6MTYzMjk5OTY1MH0.5tIO7I6yCwRJvlp-C9PA-pex4_ZWw4_9pebjmNUo_Pg"
 }
 
 ###
 
 GET http://localhost:5050/api/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvbmdrdCIsImlkIjo2MCwiaWF0IjoxNjI5MTMxNjU4LCJleHAiOjE2MjkxMzM0NTh9.uLkt-1RdHw25v0sZ97je31-oSPTsMFCOdhvAx2tcc5I
+Authorization: Bearer 
+
+###
+
+GET http://localhost:5050/api/auth/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2MzM1Nzk3NTAsImV4cCI6MTYzMzU4MTU1MH0.9m87VnZw55xZcjF7SlZkhZdbwaqWzC2x6VcakyFxWvg
+
+
+

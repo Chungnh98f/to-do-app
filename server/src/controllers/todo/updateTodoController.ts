@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 export const updateTodoController = async (req: Request, res: Response) => {
     const id = Number(req.params.id);
     const userId = res.locals.jwtPayload.id;
-    const { name, is_completed } = req.body;
+    const { name, is_completed, content, type } = req.body;
     if (
         !id ||
         typeof id !== "number" ||
@@ -19,6 +19,8 @@ export const updateTodoController = async (req: Request, res: Response) => {
         id,
         name,
         is_completed,
+        content,
+        type,
     });
     if (!response.result) {
         return res.status(400).send({ message: response.errorMessage });

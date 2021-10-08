@@ -1,6 +1,6 @@
 import { ILoginInput } from "./LoginInput";
 
 export interface IRegisterInput extends ILoginInput {
-    name: string;
+    username: string;
     is_admin: boolean;
 }

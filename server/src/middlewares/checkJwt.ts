@@ -20,7 +20,7 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
         return;
     }
 
-    redis.get(jwtPayload.username + accessTokenLabel, (err, data) => {
+    redis.get(jwtPayload.email + accessTokenLabel, (err, data) => {
         if (!data || data !== token) {
             return res.status(401).send({ message: err });
         }

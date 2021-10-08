@@ -2,12 +2,15 @@ import { IRegisterInput } from "../models/RegisterInput";
 import { IResponse } from "../models/Response";
 
 export const validateRegister = (input: IRegisterInput): IResponse => {
-    const { username, password, name, is_admin } = input;
+    const { username, password, email, is_admin } = input;
 
-    if (!name || name.length < 2) {
+    const emailRegex =
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!emailRegex.test(email)) {
         return {
             result: false,
-            errorMessage: "Invalid name",
+            errorMessage: "Invalid email",
         };
     }
 
